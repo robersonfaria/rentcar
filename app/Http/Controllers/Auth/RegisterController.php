@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Domain\Service\UserService;
+use App\Http\Transformer\UserTransformer;
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -21,22 +25,21 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
+     * @var UserService
      */
-    protected $redirectTo = '/home';
+    private $service;
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserService $service)
     {
         $this->middleware('guest');
+        $this->service = $service;
     }
 
     /**
@@ -55,17 +58,18 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function create(array $data)
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->service->create($request->all())));
+
+        return fractal($user, new UserTransformer());
+
     }
 }

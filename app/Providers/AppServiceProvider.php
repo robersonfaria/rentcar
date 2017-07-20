@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Domain\Contracts\UserContracts;
+use App\Domain\Repository\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
+
+        $this->app->bind(UserContracts::class,UserRepository::class);
     }
 }
