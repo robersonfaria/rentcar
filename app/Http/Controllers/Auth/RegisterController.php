@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Domain\Service\UserService;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Transformer\UserTransformer;
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -42,20 +44,6 @@ class RegisterController extends Controller
         $this->service = $service;
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
 
     /**
      * Handle a registration request for the application.
@@ -63,13 +51,19 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $this->validator($request->all())->validate();
+        try {
 
-        event(new Registered($user = $this->service->create($request->all())));
+            event(new Registered($user = $this->service->create($request->all())));
+            return response()->json(['message' => 'ok'], 201);
 
-        return fractal($user, new UserTransformer());
+        }catch (\Exception $e){
+
+            \Log::error($e->getMessage(),$e->getTrace());
+            return response()->json(['message'=>'Erro não esperado, entre em contato com o administrador'],500);
+
+        }
 
     }
 }
