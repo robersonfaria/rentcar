@@ -12,4 +12,9 @@ class Picture extends Model
         'file',
         'active',
     ];
+
+    public function advertisement()
+    {
+        return $this->belongsTo(Advertisement::class);
+    }
 }

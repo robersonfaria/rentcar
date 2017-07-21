@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Domain\Contracts\AdvertisementContract;
+use App\Domain\Contracts\PictureContract;
 use App\Domain\Contracts\UserContracts;
 use App\Domain\Repository\AdvertisementRepository;
+use App\Domain\Repository\PictureRepository;
 use App\Domain\Repository\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(UserContracts::class,UserRepository::class);
         $this->app->bind(AdvertisementContract::class,AdvertisementRepository::class);
+        $this->app->bind(PictureContract::class,PictureRepository::class);
     }
 }
