@@ -3,7 +3,6 @@ namespace App\Http\Routes;
 
 
 use Illuminate\Routing\Router;
-use Auth as IlluminateAuth;
 
 class Auth
 {

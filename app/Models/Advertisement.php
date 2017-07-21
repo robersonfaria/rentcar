@@ -16,4 +16,5 @@ class Advertisement extends Model
         'price',
         'published_at'
     ];
+
 }
