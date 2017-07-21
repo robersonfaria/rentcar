@@ -3,6 +3,7 @@ namespace App\Http\Routes;
 
 
 use Illuminate\Routing\Router;
+use Auth as IlluminateAuth;
 
 class Auth
 {
@@ -14,9 +15,9 @@ class Auth
 
         $router->post('login', 'LoginController@login');
 
-        $router->post('password/email', 'ForgotPasswordController@sendResetPassword');
+        $router->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
-        $router->post('password/reset', 'ResetPasswordController@reset');
+        $router->post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
 
         $router->put('me', 'UserController@update')->middleware('auth:api');
 

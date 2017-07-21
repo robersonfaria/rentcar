@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('info', function(){
     phpinfo();
 });
-Auth::routes();
+
+\Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -3,15 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Domain\Service\UserService;
-use App\Http\Requests\RegisterRequest;
-use App\Http\Transformer\UserTransformer;
-use App\Models\User;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {

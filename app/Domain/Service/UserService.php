@@ -3,6 +3,7 @@ namespace App\Domain\Service;
 
 
 use App\Domain\Contracts\UserContracts;
+use App\Models\User;
 
 class UserService
 {
@@ -17,5 +18,9 @@ class UserService
     public function create(array $user)
     {
         return $this->repository->create($user);
+    }
+
+    public function update(User $user, array $dados){
+        return $this->repository->update($user, $dados);
     }
 }
