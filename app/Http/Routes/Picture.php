@@ -14,6 +14,8 @@ class Picture
 
             $router->post('/advertisements/{uuid}/pictures','PictureController@create');
 
+            $router->delete('/advertisements/{uuid}/pictures/{file}', 'PictureController@destory');
+
         });
 
     }

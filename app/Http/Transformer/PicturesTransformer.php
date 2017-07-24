@@ -11,7 +11,7 @@ class PicturesTransformer extends TransformerAbstract
     public function transform(Picture $picture)
     {
         return [
-            $picture->file
+            $picture->file = url($picture->file)
         ];
     }
 }

@@ -23,9 +23,14 @@ class PictureController extends Controller
 
     public function create(Request $request, $uuid)
     {
-        dd($request->all(), $request->file('filess'));
-        $image = $this->service->create($request->user(),$uuid, $request->get('file'));
+        $image = $this->service->create($request->user(), $request->file('file'),$uuid);
 
         return fractal($image, new PicturesTransformer());
+    }
+
+    public function destroy(Request $request, $uuid, $file){
+        $image = $this->service->destroy($request->user(),$uuid,$file);
+
+        return fractal($image, new PicturesTransformer())->respond(204);
     }
 }

@@ -1,0 +1,28 @@
+version: '2'
+services:
+  rentcats.dev:
+    image: roberson/laravel
+    container_name: rentcars
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ~/.composer/:/root/.composer/
+    links:
+      - db-rentcars
+    environment:
+      DB_HOST: db-rentcars
+      DB_DATABASE: rentcars
+      DB_USERNAME: username
+      DB_PASSWORD: p455w0rd
+      DB_CONNECTION: mysql
+  db-rentcars:
+    image: mysql
+    container_name: db-rentcars
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: rentcars
+      MYSQL_USER: username
+      MYSQL_PASSWORD: p455w0rd
+      MYSQL_ROOT_PASSWORD: 123456
