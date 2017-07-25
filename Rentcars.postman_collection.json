@@ -1,0 +1,410 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Rentcars",
+		"_postman_id": "bea0a417-00b7-9ed9-a98d-8c4498da85f8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "rentcars.dev/register",
+			"request": {
+				"url": "rentcars.dev/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "roberson celepar",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "roberson.faria@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Registro de Usuários"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/login",
+			"request": {
+				"url": "rentcars.dev/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "roberson.faria@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Login de Usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements",
+			"request": {
+				"url": "rentcars.dev/advertisements",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer U5BzPZ58PrndpX6n3aFEPFbVSuf9vBEHk8VDyjMZmvv8kYmkueSRJ9w2DVVw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "teste gol",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "gol volks",
+							"description": ""
+						},
+						{
+							"key": "tags",
+							"value": "carro, show",
+							"description": ""
+						},
+						{
+							"key": "price",
+							"value": "5000.00",
+							"description": ""
+						}
+					]
+				},
+				"description": "Cadastro de Anúncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/c701d5d8-6e1d-11e7-adb2-f4f021b39ad6",
+			"request": {
+				"url": "rentcars.dev/advertisements/c701d5d8-6e1d-11e7-adb2-f4f021b39ad6",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer JShl65CdXBlsPwhAEBgxYHIECWzT5Dr7vlyQWxMkjSsz9biuLPp3t9ql603k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Anuncio Alterado",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Descrição do anuncio alterado",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "tag, diferente, na, alteração",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "5000.00",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Alteração de Anúncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/c701d5d8-6e1d-11e7-adb2-f4f021b39ad6",
+			"request": {
+				"url": "rentcars.dev/advertisements/c701d5d8-6e1d-11e7-adb2-f4f021b39ad6",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer JShl65CdXBlsPwhAEBgxYHIECWzT5Dr7vlyQWxMkjSsz9biuLPp3t9ql603k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Visualização de Anúncio LOGADO"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/b6ccf698-6e1d-11e7-86d2-220e91f75974",
+			"request": {
+				"url": "rentcars.dev/advertisements/b6ccf698-6e1d-11e7-86d2-220e91f75974",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer edh2pXpi7YNfK994yuXUv7oKnxwVbHQdZOviu0WUArQcBmVc3XgteybIHisb",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Exclusão de Anúncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements",
+			"request": {
+				"url": "rentcars.dev/advertisements",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer U5BzPZ58PrndpX6n3aFEPFbVSuf9vBEHk8VDyjMZmvv8kYmkueSRJ9w2DVVw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Listar todos anuncios de um usuário logado"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/b6ccf698-6e1d-11e7-86d2-220e91f75974/toogle-published",
+			"request": {
+				"url": "rentcars.dev/advertisements/b6ccf698-6e1d-11e7-86d2-220e91f75974/toogle-published",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer JShl65CdXBlsPwhAEBgxYHIECWzT5Dr7vlyQWxMkjSsz9biuLPp3t9ql603k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Publicar ou desplublicar anuncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/search?q=carro",
+			"request": {
+				"url": {
+					"raw": "rentcars.dev/advertisements/search?q=carro",
+					"host": [
+						"rentcars",
+						"dev"
+					],
+					"path": [
+						"advertisements",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "carro",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Busca de Anúncios"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisement/88a8bcf4-6e48-11e7-8c90-e87109a964a2",
+			"request": {
+				"url": "rentcars.dev/advertisement/88a8bcf4-6e48-11e7-8c90-e87109a964a2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Visualização de um anúncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisement/88a8bcf4-6e48-11e7-8c90-e87109a964a2/images",
+			"request": {
+				"url": "rentcars.dev/advertisement/88a8bcf4-6e48-11e7-8c90-e87109a964a2/images",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Visualização das imagens de um anúncio"
+			},
+			"response": []
+		},
+		{
+			"name": "rentcars.dev/advertisements/88a8bcf4-6e48-11e7-8c90-e87109a964a2/pictures",
+			"request": {
+				"url": "rentcars.dev/advertisements/88a8bcf4-6e48-11e7-8c90-e87109a964a2/pictures",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer U5BzPZ58PrndpX6n3aFEPFbVSuf9vBEHk8VDyjMZmvv8kYmkueSRJ9w2DVVw",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filess",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "Cadastro de uma imagem em um anúncio"
+			},
+			"response": []
+		}
+	]
+}
